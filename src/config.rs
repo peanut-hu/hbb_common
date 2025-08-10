@@ -109,7 +109,7 @@ const CHARS: &[char] = &[
 ];
 
 pub const RENDEZVOUS_SERVERS: &[&str] = &["rustdesk.coimbraits.hu"];
-pub const RS_PUB_KEY: &str = "VqAeGJ3aPVIiGtelGTWhPKo9jvLKLIWFFWx+k7sSi7E=";
+pub const RS_PUB_KEY: &str = "BAEeXn058vN+H4UFLjIQ25cOibJj21Av36d1SmUiols=";
 
 pub const RENDEZVOUS_PORT: i32 = 21116;
 pub const RELAY_PORT: i32 = 21117;
