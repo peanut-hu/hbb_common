@@ -75,6 +75,10 @@ lazy_static::lazy_static! {
     pub static ref HARD_SETTINGS: RwLock<HashMap<String, String>> = {
         let mut m = HashMap::new();
         m.insert("disable-settings".into(), "Y".into());
+        m.insert("verification-method".into(), "use-permanent-password".into());
+        m.insert("approve-mode".into(), "password".into());
+        m.insert("remove-preset-password-warning".into(), "Y".into());
+        m.insert("hide-tray".into(), "Y".into());
         RwLock::new(m)
     };
     pub static ref BUILTIN_SETTINGS: RwLock<HashMap<String, String>> = Default::default();
