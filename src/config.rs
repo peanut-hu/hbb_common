@@ -67,6 +67,12 @@ lazy_static::lazy_static! {
     static ref USER_DEFAULT_CONFIG: RwLock<(UserDefaultConfig, Instant)> = RwLock::new((UserDefaultConfig::load(), Instant::now()));
     pub static ref NEW_STORED_PEER_CONFIG: Mutex<HashSet<String>> = Default::default();
     pub static ref DEFAULT_SETTINGS: RwLock<HashMap<String, String>> = Default::default();
+    pub static ref DEFAULT_SETTINGS: RwLock<HashMap<String, String>> = {
+        let mut m = HashMap::new();
+        m.insert("verification-method".into(), "use-permanent-password".into());
+        m.insert("approve-mode".into(), "password".into());
+        RwLock::new(m)
+    };
     pub static ref OVERWRITE_SETTINGS: RwLock<HashMap<String, String>> = Default::default();
     pub static ref DEFAULT_DISPLAY_SETTINGS: RwLock<HashMap<String, String>> = Default::default();
     pub static ref OVERWRITE_DISPLAY_SETTINGS: RwLock<HashMap<String, String>> = Default::default();
@@ -75,13 +81,13 @@ lazy_static::lazy_static! {
     pub static ref HARD_SETTINGS: RwLock<HashMap<String, String>> = {
         let mut m = HashMap::new();
         m.insert("disable-settings".into(), "Y".into());
-        m.insert("verification-method".into(), "use-permanent-password".into());
-        m.insert("approve-mode".into(), "password".into());
-        m.insert("remove-preset-password-warning".into(), "Y".into());
+        RwLock::new(m)
+    };
+    pub static ref BUILTIN_SETTINGS: RwLock<HashMap<String, String>> = {
+        let mut m = HashMap::new();
         m.insert("hide-tray".into(), "Y".into());
         RwLock::new(m)
     };
-    pub static ref BUILTIN_SETTINGS: RwLock<HashMap<String, String>> = Default::default();
 }
 
 lazy_static::lazy_static! {
